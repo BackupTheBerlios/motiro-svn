@@ -1,0 +1,31 @@
+<% if ! @partial then %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Motiro - Subversion - Revisão <%= @revision_id -%></title>
+    <%= stylesheet_link_tag "motiro", :media => "all" %>
+  </head>
+  <body>
+    <h1>Revisão <%= @revision_id -%></h1>
+<% end %>
+    <div id="description">
+      <pre>
+<%= h(@headline.description) %>
+      </pre>
+    </div>
+    <div id="summary">
+        <% @headline.changes.each do |change| %>
+            <%= change.render_summary -%>
+            <br/>
+        <% end %>
+    </div>
+<% if !@partial then %>
+    <% @headline.changes.each do |change| %>
+        <%= change.render_diff %>
+    <% end %>
+  </body>
+</html>
+<% end %>
+    
