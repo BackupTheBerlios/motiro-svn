@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Motiro: <%= 'Welcome'.t -%></title>
+    <%= stylesheet_link_tag "motiro", :media => "all" %>
+    <style type="text/css">
+        div#svn div.channel-title{background: #E3A1C4}
+        div#svn div.channel-body-outer{background: #E3A1C4}
+        div#events div.channel-title{background: #FFBD00}
+        div#events div.channel-body-outer{background: #FFBD00}
+    </style>
+    <script type="text/javascript" src="niftycube.js"></script>
+    <script type="text/javascript">
+        window.onload=function(){
+            Nifty("div.channel-title","top,big");
+            Nifty("div.channel-body-outer","bottom,big");
+            Nifty("div.window","big");
+        }
+    </script>
+  </head>
+  <body>
+    <div id="content">
+      <% if @flash[:notice] -%>
+        <div id="notice"><%= @flash[:notice] %></div>
+      <% end %>
+      <div id='header'>
+        <div style='float: right;'>
+          <a id='en' href='/en'>English</a> |
+          <a id='pt-BR' href='/pt-BR'>Português</a>
+        </div>
+        <div>
+          <%= render :partial => 'header' %>
+        </div>
+      </div>
+      <div id="description" class="window">
+        <div class = "inner">
+          <%= render_component(:controller => 'wiki',
+                               :action =>  'show',
+                               :params => { :page => 'MainPage',
+                                            :locale => @locale }) %>
+        </div>
+      </div>
+    <div class="channel" id="svn">
+      <%= render_component(:controller => 'report',
+                           :action =>  'show',
+                           :params => {:reporter => 'subversion'}) %>
+    </div>
+    <div class="channel" id="events">
+      <%= render_component(:controller => 'report',
+                           :action =>  'show',
+                           :params => {:reporter => 'events'}) %>
+    </div>
+    <div id="footer">
+      <p>Motiro <%= 'version'.t -%> <%= MOTIRO_VERSION -%></p>
+    </div>
+    </div>
+  </body>
+</html>

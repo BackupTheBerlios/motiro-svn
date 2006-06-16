@@ -1,0 +1,51 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+gita:
+  id: 1
+  author: raulseixas
+  title: gita
+  happened_at: 2005-01-01 00:00:00
+  reported_by: subversion
+  rid: r12
+
+dia_em_que_a_terra_parou:
+  id: 2
+  author: raulseixas
+  title: o dia em que a terra parou
+  happened_at: 2036-02-01 00:00:00
+  reported_by: subversion
+  rid: r16
+
+svn_demo_headline:
+  id: 3
+  author: james
+  title: This is a subversion revision comment
+  happened_at: 2006-03-23 11:10:04
+  reported_by: subversion
+  rid: r32
+  description: This is a subversion revision comment
+                 
+               The comment is a multiline comment that indicates the purpose
+               of the revision.
+  
+release_event:
+  id: 4
+  author: bond
+  title: Next release planned for April, 26th
+  happened_at: 2006-04-26
+  reported_by: events
+  rid: e1
+  description: Motiro's next release is planned for April 26th. Somethings
+               we will be working on for this release are
+               
+               - Fixing bugs on the subversion reporter
+               - Adding user authentication
+    
+meeting_event:
+  id: 5
+  author: motiro_maintainer
+  title: Planning meeting
+  happened_at: 2006-04-04
+  reported_by: events
+  rid: e2
+
