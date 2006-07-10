@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+# These fixtures are encoded using 'motiro' as salt. Please remember to keep
+# consistency.
+
+# For most cases just using User.sha1 to encode the passwords will do
+
+bob:
+  id: 1000001
+  login: bob
+  password: b8ccc7b7f539f5ed5b557990935848e5a637d209 # test
+  
+existingbob:
+  id: 1000002
+  login: existingbob
+  password: b8ccc7b7f539f5ed5b557990935848e5a637d209 # test
+  
+longbob:
+  id: 1000003
+  login: longbob
+  password: 54669dd88f2b12b0c65f19ecabde765d3e8c5e5a # longtest
