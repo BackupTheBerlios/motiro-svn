@@ -1,0 +1,30 @@
+<div class='channel-title'>
+  <%= link_to( image_tag('rss.png', :border => 0, :class => 'rss'),
+               { :controller => 'report',
+                 :action => 'show',
+                 :reporter => @name,
+                 :format => 'rss',
+                 :locale => @locale },
+               :class => 'feed' )
+  %>
+  <p><%= h(@title) %></p>
+</div>
+<div class='channel-body-outer'>
+  <div class='inner'>
+<% @headlines.each do |headline|%>
+    <p>
+      <%= link_to( h(headline.title(Translator.for(@locale))),
+                   { :controller => 'report',
+                     :action => 'show',
+                     :reporter => @name,
+                     :id => headline.rid } )%>
+      <br/>
+      <font size="-1">
+        <i><%= h(headline.author) %></i>
+        (<%= headline.relative_to_now %>)
+      </font>
+      <hr/>
+    </p>
+<% end %>
+  </div>
+</div>
